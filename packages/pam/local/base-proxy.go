@@ -429,6 +429,8 @@ func HandleApprovalWorkflow(httpClient *resty.Client, err error, projectID strin
 
 	approvalReq, reqErr := api.CallPAMAccessApprovalRequest(httpClient, api.PAMAccessApprovalRequest{
 		ProjectId:   projectID,
+		Scope:       "project",
+		ScopeId:     projectID,
 		RequestData: accessParams.ToApprovalRequestData(durationStr),
 	})
 	if reqErr != nil {
